@@ -16,13 +16,13 @@ function [var__normal, mat__orthnorm_plane_base, var__plane_point, residual_aver
 % Call affine fit
 %--------------------------------------------------------------------------
 
-[var__normal, mat__orthnorm_plane_base, var__plane_point] = affine_fit(mat__point_matrix);
+[var__normal, mat__orthnorm_plane_base, var__plane_point] = best_fit_plane__affine_fit(mat__point_matrix);
 
 %--------------------------------------------------------------------------
 % Call lsplane (i need both of the residual values)
 %--------------------------------------------------------------------------
 
-[centeroid, cosines, residuals, norm_of_residuals] = lsplane(mat__point_matrix);
+[centeroid, cosines, residuals, norm_of_residuals] = best_fit_plane__lsplane(mat__point_matrix);
 
 residual_average = mean(residuals);
 %--------------------------------------------------------------------------

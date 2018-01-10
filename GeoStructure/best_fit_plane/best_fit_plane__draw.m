@@ -5,8 +5,7 @@ function [ planes ] = best_fit_plane__draw(vec__point, mat__orthnorm_plane_base,
 % Discussion
 %--------------------------------------------------------------------------
 % This is where all the magic happens. Finds the best fit plane
-%
-% Returns 
+% 
 %% ------------------------------------------------------------------------
 % External Variables
 %--------------------------------------------------------------------------

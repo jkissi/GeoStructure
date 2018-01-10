@@ -5,14 +5,14 @@ function [ planes ] = best_fit_plane__calculate(planes)
 % Discussion
 %--------------------------------------------------------------------------
 % This is where all the magic happens. Finds the best fit plane
-%
-% Returns 
+% 
 %% ------------------------------------------------------------------------
 % External Variables
 %--------------------------------------------------------------------------
 % index :: index of the set of planes to be sampled 
 % matrix :: matrix of the coords of the planes 
-% ?
+
+
 mat__grouping_array = [];
 idx__grouping_array = 1;
 struct__current_point = planes(1); % just take the first point for now  
@@ -37,8 +37,8 @@ x = coord_matrix;
 % KNN Clustering 
 %--------------------------------------------------------------------------
 % Using the algorithm for Euclidean Distance 
-%N = size(x, 1);
-%dists = sqrt(sum((x - repmat(newpoint, N, 1)).^2, 2));
+% N = size(x, 1);
+% dists = sqrt(sum((x - repmat(newpoint, N, 1)).^2, 2));
 k = 10;
 % dists would be a N element vector that contains the distances between 
 % each data point in x and struct__current_point.vec__point. We do an element-by-element subtraction 
@@ -142,14 +142,6 @@ for i = 1:length(x_closest)
 %newpoint = idx__seed_index_array(n).vec__point;
 %newpoint = idx__seed_index_array(n).vec__point;
 end 
-%--------------------------------------------------------------------------
-% Region growing
-%--------------------------------------------------------------------------
-
-
-%--------------------------------------------------------------------------
-% Plane Segmentation
-%--------------------------------------------------------------------------
 
 %--------------------------------------------------------------------------
 % Terminate
