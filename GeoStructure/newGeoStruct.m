@@ -63,7 +63,7 @@ geo_struct.run_meshlab.dense_mesh = 'C:\Users\jkissi\Downloads\research\SfM\exam
 %--------------------------------------------------------------------------
 % Read in file
 %--------------------------------------------------------------------------
-geo_struct.point_cloud__read.point_cloud_file = [pathstr, '\input\data\lidar_scans\16AB.las'];
+geo_struct.point_cloud__read.point_cloud_file = [pathstr, '\input\data\dense_poisson_oc_6.ply'];
 
 geo_struct.point_cloud__read.calculation__get_mahal_dist.switch = 1;
 

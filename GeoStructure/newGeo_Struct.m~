@@ -11,7 +11,7 @@ function [ geo_struct ] = newGeo_Struct(struct__options)
 % usually these values are overridden if a script wants to or if
 % the user specified corresponding options on the commandline when
 % running the generation
-% Returns :: geo_struct initialisation structure  
+% Returns :: geo_struct intialisation structure  
 %% ------------------------------------------------------------------------
 % External none
 %--------------------------------------------------------------------------
@@ -22,9 +22,6 @@ geo_struct = struct();
 geo_struct.profile_script = 0;
 geo_struct.debug = 0;
 current_path = mfilename('fullpath');
-% The program MUST be run from INSIDE the GeoStructure folder otherwise the
-% program will make erroneous output folders to place the output graphs and
-% textfile in. 
 [pathstr, name, ext] = fileparts(current_path);
 % make sure to use the 'filesep' for the slashes in all filenames. This 
 % prevents errors from occuring when running on different os'.
@@ -46,23 +43,24 @@ geo_struct.one_over.switch = 0;
 geo_struct.input_divisor = ''; %10
 geo_struct.absolute_file_path = ''; %'D:\research\drone_2\copy\frames_from_Bebop_Drone_2015-11-27T2211'
 geo_struct.absolute_output_path = ''; %'D:\research\drone_2\copy\frames_from_Bebop_Drone_2015-11-27T2211'
+%geo_struct.output_folder = ''; %'10'
 geo_struct.input_file_ext = 'jpg'; %'jpg'
 
 %--------------------------------------------------------------------------
-% Run VSfM (Currently run manually)
+% Run VSfM
 %--------------------------------------------------------------------------
 geo_struct.run_vsfm.switch = 0;
 geo_struct.run_vsfm.image_input_folder = geo_struct.output_folder;
 geo_struct.run_vsfm.nvm_out_folder = '';
 
 %--------------------------------------------------------------------------
-% Run Meshlab (Currently run manually)
+% Run Meshlab
 %--------------------------------------------------------------------------
 geo_struct.run_meshlab.switch = 0;
 geo_struct.run_meshlab.bundle_file = ''; %C:\Users\jkissi\Downloads\research\SfM\examples\wall4\wall_rectified_matlab_distortion\Movie Frames from MVI_0001\dense.nvm.cmvs\00\bundle.rd.out
 geo_struct.run_meshlab.list_file = ''; %C:\Users\jkissi\Downloads\research\SfM\examples\wall4\wall_rectified_matlab_distortion\Movie Frames from MVI_0001\dense.nvm.cmvs\00\list.txt
 geo_struct.run_meshlab.mlx_script_file = 'first_mlx.mlx';
-geo_struct.run_meshlab.dense_mesh = ''; %'C:\Users\jkissi\Downloads\research\SfM\examples\wall4\wall_rectified_matlab_distortion\Movie Frames from MVI_0001\dense.0.ply';
+geo_struct.run_meshlab.dense_mesh = 'C:\Users\jkissi\Downloads\research\SfM\examples\wall4\wall_rectified_matlab_distortion\Movie Frames from MVI_0001\dense.0.ply';
 
 %--------------------------------------------------------------------------
 % Read in file

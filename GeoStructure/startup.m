@@ -5,13 +5,12 @@
 % add script base path
 % (we run matlab ALWAYS from within the GeoStruct
 % - so we can be sure of the paths to add, even if we move the
-% caa_production folder around)
+% GeoStructure folder around)
 
 
-%global caa_production_path;
-%caa_production_path = [pwd, '\'];
+%global GeoStructure;
 global geostruct_path;
-geostruct_path = [ pwd, '\'];
+geostruct_path = [ pwd, filesep];
 
 % base path to the matlab scripts we are using
 addpath(geostruct_path);

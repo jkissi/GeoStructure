@@ -24,8 +24,7 @@ struct__options.edge_alpha = 0.2;
 struct__stats.replot_only = 0;
 if(~struct__stats.replot_only)
 % if one of these options is turned on then the filename will have 'var' in
-% the title instead of the figure used and this quantity will be the one 
-% that varies
+% the title instead of the figure used 
 struct__options.bool__search_cube_size_factor_on = 0;
 struct__options.bool__normal_threshold_on = 0;
 struct__options.bool__psi_threshold_on = 0;
@@ -122,7 +121,7 @@ if(struct__stats.replot_only)
     files = {};
 
     for g = 1:length(folder_name)
-        save_file = [output_folder, folder_name{g} filesep folder_name{g}, '.txt'];
+        save_file = [output_folder, folder_name{g},, folder_name{g}, '.txt'];
         files{end + 1} = save_file;   
     end 
 else
@@ -361,10 +360,7 @@ if(struct__stats.replot_only)
 else
     addpath(genpath([geo_struct.output_folder, struct__stats.parent_folder]));
 end
-% End of experimental run. Close all figures generated.
 close all;
-% End of expereimental run. Run startup script. 
-startup;
 
 disp('Execution terminating. Experiment(s) complete.');
 
