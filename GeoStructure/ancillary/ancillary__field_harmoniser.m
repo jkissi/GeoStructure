@@ -1,7 +1,14 @@
+% -------------------------------------------------------------------------
+% ancillary__field_harmoniser.m
+% -------------------------------------------------------------------------
 function [ template_struct, candidate_struct ] = ancillary__field_harmoniser(template_struct, candidate_struct)
-
-
+%% ------------------------------------------------------------------------
+% Discussion
+% -------------------------------------------------------------------------
 % Harmonises fields between a struct sample and a candidate struct
+% -------------------------------------------------------------------------
+
+
 
 if(isempty(fieldnames(candidate_struct)))
     field_names = fieldnames(template_struct);
@@ -12,4 +19,7 @@ end
 
 
 disp('Execution complete. Function ancillary__field_harmoniser.m terminating.');
+% -------------------------------------------------------------------------
+% Terminate 
+% -------------------------------------------------------------------------
 end
