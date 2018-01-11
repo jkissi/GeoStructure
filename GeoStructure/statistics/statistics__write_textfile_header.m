@@ -1,12 +1,19 @@
+% -------------------------------------------------------------------------
+% statistics__write_textfile_header function
+% -------------------------------------------------------------------------
 function [save_file] = statistics__write_textfile_header(struct__stats)
- 
+%% ------------------------------------------------------------------------
+% Discussion
+% -------------------------------------------------------------------------
+% Function to write the header of the textfile
+% ------------------------------------------------------------------------- 
 
 global geo_struct;
 experiment_folder = [geo_struct.output_folder, struct__stats.parent_folder];
 %filename = struct__stats.experiment;
 filename = struct__stats.parent_folder;
 ext = geo_struct.stats.textfile_ext;
-save_file = [experiment_folder,'\', filename, ext];
+save_file = [experiment_folder, filesep, filename, ext];
 
 fileID = fopen(save_file, 'at+');
 fprintf(fileID,'============================================================================================\n');
@@ -15,6 +22,9 @@ fprintf(fileID,'================================================================
 fclose(fileID); 
 
 
+%--------------------------------------------------------------------------
+% Terminate
+%--------------------------------------------------------------------------
 disp('Execution complete. Function statistics__write_textfile_header.m terminating.');
 return;
 end

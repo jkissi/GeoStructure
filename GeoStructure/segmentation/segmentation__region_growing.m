@@ -14,10 +14,10 @@ function [ planes, final_array, region_idx ] = segmentation__region_growing(plan
 % Returns 
 %% ------------------------------------------------------------------------
 % External Variables
-%--------------------------------------------------------------------------
+% -------------------------------------------------------------------------
 % index :: index of the set of A_matrix to be sampled 
 % matrix :: matrix of the coords of the A_matrix 
-% ?
+% -------------------------------------------------------------------------
 timer_start__segmentation__region_growing = tic; %Start GeoStruct timer
 global geo_struct;
 xyz_closest = struct();

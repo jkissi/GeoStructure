@@ -1,20 +1,27 @@
-%%
+% -------------------------------------------------------------------------
+% statistics__generate_plot function
+% -------------------------------------------------------------------------
 function [struct__stats] = statistics__generate_plot(struct__stats)
-%%
+%% ------------------------------------------------------------------------
+% Discussion
+% -------------------------------------------------------------------------
+% Function to automatically generate plots from the data collected during
+% the experiment cycle
+% -------------------------------------------------------------------------
 global geo_struct;
 
 if(struct__stats.quality_score_switch)
-    savepath = [struct__stats.output_folder, struct__stats.parent_folder, '\'];
+    savepath = [struct__stats.output_folder, struct__stats.parent_folder, filesep];
     ext = struct__stats.plot_ext;
     experiment = struct__stats.experiment;
 
 elseif(struct__stats.replot_only)
-    savepath = [struct__stats.output_folder, struct__stats.parent_folder, '\'];
+    savepath = [struct__stats.output_folder, struct__stats.parent_folder, filesep];
     ext = struct__stats.plot_ext;
     experiment = struct__stats.experiment;
 else
 
-    savepath = [geo_struct.output_folder, geo_struct.stats.parent_folder, '\'];
+    savepath = [geo_struct.output_folder, geo_struct.stats.parent_folder, filesep];
     ext = geo_struct.stats.plot_ext;
     experiment = struct__stats.parent_folder;
 end
@@ -66,6 +73,10 @@ struct__stats = rmfield(struct__stats, 'y_array');
 if(isfield(struct__stats, 'legend'))
     struct__stats = rmfield(struct__stats, 'legend');
 end
+
+% -------------------------------------------------------------------------
+% Terminate 
+% -------------------------------------------------------------------------
 %saveas(gcf, [geo_struct.output_folder, geo_struct.stats.experiment, '\', geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
 disp('Execution complete. Function statistics__generate_plot.m terminating.');
 return;

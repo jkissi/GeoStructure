@@ -1,6 +1,12 @@
-%
+% -------------------------------------------------------------------------
+% statistics__write_textfile_normalisation function
+% -------------------------------------------------------------------------
 function [save_file] = statistics__write_textfile_normalisation(struct__stats)
-%% 
+%% ------------------------------------------------------------------------
+% Discussion
+% -------------------------------------------------------------------------
+% Function to write the the textfile for normalised version of the data
+% ------------------------------------------------------------------------- 
 %global geo_struct;
 
 % experiment_folder = struct__stats.ouput_folder;
@@ -55,7 +61,9 @@ fprintf(fileID,'%6.4f | %6.4f | %6.4f | %6.4f | %6.4f | %6.4f | %6.4f | %6.4f | 
 end
 fclose(fileID);
 
-
+%--------------------------------------------------------------------------
+% Terminate
+%--------------------------------------------------------------------------
 disp('Execution complete. Function statistics__write_textfile.m terminating.');
 return;
 end

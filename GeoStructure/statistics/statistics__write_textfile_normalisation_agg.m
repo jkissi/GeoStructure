@@ -1,6 +1,14 @@
-%
+% -------------------------------------------------------------------------
+% statistics__write_textfile_normalisation_agg function
+% -------------------------------------------------------------------------
 function [save_file] = statistics__write_textfile_normalisation_agg(struct__stats)
-%% 
+%% ------------------------------------------------------------------------
+% Discussion
+% -------------------------------------------------------------------------
+% Function to aggregates all the data from all the textfiles of the
+% different experiments that are running and appends them to one big file
+% that can be read and plotted at once. 
+% ------------------------------------------------------------------------- 
 %global geo_struct;
 
 % experiment_folder = struct__stats.ouput_folder;
@@ -19,7 +27,9 @@ for row = 1:nrows
 end
 fclose(fileID); 
 
-
+%--------------------------------------------------------------------------
+% Terminate
+%--------------------------------------------------------------------------
 disp('Execution complete. Function statistics__write_textfile_normalisation_agg.m terminating.');
 return;
 end

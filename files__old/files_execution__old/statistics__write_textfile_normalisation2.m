@@ -1,5 +1,5 @@
 %
-function [save_file] = statistics__write_textfile_normalisation(struct__stats)
+function [save_file] = statistics__write_textfile_normalisation2(struct__stats)
 %% 
 %global geo_struct;
 

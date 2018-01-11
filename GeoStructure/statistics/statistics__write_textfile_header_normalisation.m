@@ -1,5 +1,13 @@
+% -------------------------------------------------------------------------
+% statistics__write_textfile_header_normalisation function
+% -------------------------------------------------------------------------
 function [save_file] = statistics__write_textfile_header_normalisation(struct__stats)
-%% 
+%% ------------------------------------------------------------------------
+% Discussion
+% -------------------------------------------------------------------------
+% Function to write the header of the textfile for normalised version of
+% the data
+% ------------------------------------------------------------------------- 
 
 %global geo_struct;
 % experiment_folder = struct__stats.ouput_folder;
@@ -18,7 +26,9 @@ fprintf(fileID,'%8s | %8s | %8s | %8s | %8s | %8s | %8s | %8s | %8s | %8s | %8s 
 fprintf(fileID,'===========================================================================================================================================================================================================================\n');
 fclose(fileID); 
 
-
+%--------------------------------------------------------------------------
+% Terminate
+%--------------------------------------------------------------------------
 disp('Execution complete. Function statistics__write_textfile_header_normalisation.m terminating.');
 return;
 end
