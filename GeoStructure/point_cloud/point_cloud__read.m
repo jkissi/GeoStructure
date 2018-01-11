@@ -25,9 +25,9 @@ global geo_struct;
 verbose = 1;
 
 if(verbose)  % If true, print the following... 
-    fprintf(1, 'PLY_DISPLAY\n');
-    fprintf(1, '  MATLAB version\n');
-    fprintf(1, '  Read a PLY file and display it\n');
+    fprintf(1, 'GeoStructure v1.0\n');
+    fprintf(1, '\copyright Jon Kissi-Ameyaw (2016, 2017, 2018).');
+    fprintf(1, ['MATLAB version: ', version]);
 end
 
 %--------------------------------------------------------------------------
@@ -95,6 +95,9 @@ set(gca,'ZDir','reverse');
 xlabel('<--- X --->');
 ylabel('<--- Y --->');
 zlabel('<--- Z --->');
+
+% This kees the graph showing and selected so that it is visible and the 
+% subsequent processes add their results to the current figure
 hold on;
 %--------------------------------------------------------------------------
 % Terminate
@@ -107,7 +110,7 @@ if(geo_struct.timings.switch)
     geo_struct.timings.timer_stop__point_cloud__read = timer_stop__point_cloud__read;
 end
 
-saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, '\', geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
+saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder filesep geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
 
 disp('Read complete. Function point_cloud__read.m terminating.');
 return;

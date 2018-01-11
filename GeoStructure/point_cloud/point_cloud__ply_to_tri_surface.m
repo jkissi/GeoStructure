@@ -1,19 +1,24 @@
+% -------------------------------------------------------------------------
+% PLY_TO_TRI_SURFACE converts data from a PLY file to TRI_SURFACE data.
+% -------------------------------------------------------------------------
 function [ node_xyz, triangle_node, node_colour ] = point_cloud__ply_to_tri_surface(ply_filename)
-%% PLY_TO_TRI_SURFACE converts data from a PLY file to TRI_SURFACE data.
-%%-------------------------------------------------------------------------
+%% ------------------------------------------------------------------------
 % Discussion:
-%  This routine reads a PLY file, searches for the data that defines
-%  a polygonal surface, reduces polygons to triangles, and returns
-%  a pair of arrays that define a TRI_SURFACE, that is a triangular
-%  mesh of a surface in 3D.
-%
+% Function modified version of original work done by Pascal Getreuer in 
+% 2004 and modifications by John Burkardt (01 March 2007). Description 
+% follows: 
+% This routine reads a PLY file, searches for the data that defines
+% a polygonal surface, reduces polygons to triangles, and returns
+% a pair of arrays that define a TRI_SURFACE, that is a triangular
+% mesh of a surface in 3D.
+% -------------------------------------------------------------------------
 % Example:
 %  [ node_xyz, triangle_node ] = ply_to_tri_surface('cow.ply');
 %  trisurf (triangle_node', node_xyz(1,:), node_xyz(2,:), node_xyz(3,:) );
 %  colormap(gray);
 %  axis equal;
 %
-% Discussion:
+% Errata:
 %  The original version of this program had a mistake that meant it
 %  did not properly triangulate files whose faces were not already triangular.
 %  This has been corrected (JVB, 25 February 2007).
@@ -39,11 +44,11 @@ function [ node_xyz, triangle_node, node_colour ] = point_cloud__ply_to_tri_surf
 %  PROPERTYTYPES, the element property types.
 %  SAMEFLAT is 1 if all types are the same.
 %  SIZEOF, size in bytes of each type.
-%
+% -------------------------------------------------------------------------
+
+% -------------------------------------------------------------------------
 % Open the input file in "read text" mode.
-%--------------------------------------------------------------------------
-
-
+% -------------------------------------------------------------------------
 % Open the .ply file using fopen()
 [ fid, Msg ] = fopen(ply_filename, 'rt');
 
@@ -473,6 +478,12 @@ if(~isempty(Names)) % If 'names' field is NOT empty...
         triangle_node = triangle_node(:,1:N + Extra) + 1;
     end
 end
-return
+
+%--------------------------------------------------------------------------
+% Terminate
+%--------------------------------------------------------------------------
+disp('Execution complete. Function point_cloud__ply_to_tri_surface.m terminating.');    
+
+return;
 end
 

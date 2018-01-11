@@ -5,7 +5,7 @@ function [struct__ps] = point_cloud__get_coords(current_graph_axes, struct__ps)
 % Discussion
 %--------------------------------------------------------------------------
 % Written primarily to hoover up and return the points from the Search 
-% Space Interrogates the provided plot axes and extracts the x, y, z point 
+% Space. Interrogates the provided plot axes and extracts the x, y, z point 
 % data, and adds them to vectors. 
 % Returns the x_vals, y_vals and z_vals vectors. 
 %% ------------------------------------------------------------------------
@@ -78,6 +78,7 @@ end
 struct__ps.vec__x_point_vals = x_vals;
 struct__ps.vec__y_point_vals = y_vals;
 struct__ps.vec__z_point_vals = z_vals;
+
 %--------------------------------------------------------------------------
 % Terminate
 %--------------------------------------------------------------------------

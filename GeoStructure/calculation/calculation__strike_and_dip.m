@@ -16,6 +16,7 @@ function [radians__strike, degrees__strike, radians__dip_direction, degrees__dip
 % resolution LIDAR point clouds - Gigli 
 % [2] Measuring fracture orientation at exposed rock faces by using a 
 % non-reflector total station - Feng 
+% -------------------------------------------------------------------------
 
 d = [];
 angular_constant = [];
@@ -101,14 +102,13 @@ else
        disp('Degrees are empty Jim!!!'); 
     end
 end
-
+if(isempty(degrees__strike))
+   disp('Degrees are empty!!!'); 
+end
 %--------------------------------------------------------------------------
 % Terminate
 %--------------------------------------------------------------------------
-disp('Execution complete. Function calculation__strike_and_dip.m terminating.');
-    if(isempty(degrees__strike))
-       disp('Degrees are empty!!!'); 
-    end
+disp('Execution complete. Function calculation__strike_and_dip.m terminating.');    
 return;
 end 
 
