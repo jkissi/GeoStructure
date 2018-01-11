@@ -1,6 +1,17 @@
+% -------------------------------------------------------------------------
+% v2i3 function
+% -------------------------------------------------------------------------
 function [ ] = v2i3(absolute_video_file_path, output_image_file_prefix, output_file_ext)
-%% Construct a multimedia reader object associated with file 'xylophone.mpg' with
-% user tag set to 'myreader1'.
+%% ------------------------------------------------------------------------
+% Discussion
+% -------------------------------------------------------------------------
+% Function video2image3 takes a video object and seperate it into individual 
+% frames. The number of frames that can be selected is arbitrary but for 
+% this work, the number is the standard 25 fps.
+% -------------------------------------------------------------------------
+
+%% Construct a multimedia reader object associated with file 
+% 'absolute_video_file_path' with user tag set to 'myreader1'.
 
 [input_file_path, input_file_name, input_file_extension] = fileparts(absolute_video_file_path);
 %readerobj = VideoReader('\video\MVI_0002.AVI', 'tag', 'myreader1');
@@ -91,4 +102,10 @@ else
 end
 disp(finishedMessage); % Write to command window.
 uiwait(msgbox(finishedMessage)); % Also pop up a message box.
+
+%--------------------------------------------------------------------------
+% Terminate
+%--------------------------------------------------------------------------
+disp('Read complete. Function v2i3.m terminating.');
+
 end
