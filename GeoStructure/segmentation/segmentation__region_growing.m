@@ -338,9 +338,7 @@ while(~isempty(A_matrix))
 end
 
 
-%--------------------------------------------------------------------------
-% Terminate
-%--------------------------------------------------------------------------
+
 
 %timer_start__segmentation__region_growing = tic; %Start GeoStruct timer
 timer_stop__segmentation__region_growing = toc(timer_start__segmentation__region_growing); %Stop internal timer
