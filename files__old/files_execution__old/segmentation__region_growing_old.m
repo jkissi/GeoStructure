@@ -1,5 +1,5 @@
 %% segmentation__macro_region.m (Plane Fit functions)
-function [ planes ] = segmentation__region_growing(planes)
+function [ planes, final_array, region_idx ] = segmentation__region_growing_old(planes)
 % Function to implement region growing algorithm to classify all points in
 % the cloud to group them into larger regions (A_matrix) for measurement
 %% ------------------------------------------------------------------------
@@ -18,6 +18,8 @@ function [ planes ] = segmentation__region_growing(planes)
 % index :: index of the set of A_matrix to be sampled 
 % matrix :: matrix of the coords of the A_matrix 
 % ?
+timer_start__segmentation__region_growing = tic; %Start GeoStruct timer
+global geo_struct;
 
 final_regions = []; % Stores the ID numbers of all the final regions
 seed_array = struct(); % Stores coordinates for points with normals larger than the threshold for the
@@ -29,12 +31,12 @@ angle_comparison_array = [];
 coord_matrix = [];
 ind_closest_array = [];
 array = [];
-normal_threshold = 5;%10
+normal_threshold = geo_struct.normal_threshold;%10
 A_matrix = planes;
 han__seg_plane_draw = [];
 idx__seg_plane_draw = 1;
 % K Nearest Neigh
-k = 30;
+k = geo_struct.region_growing_k;
 % TODO usually the last entry in the array comes in without a point vector
 % or a bormal vector. Not sure why, must but for now, just get rid of the
 % entry
@@ -241,55 +243,21 @@ while(~isempty(A_matrix))
     end
 end
 
-idx__final_array_empty_elems = arrayfun(@(s) all(structfun(@isempty, s)), final_array);
-final_array = final_array(~idx__final_array_empty_elems);
-for special_idx = 1:region_idx
-    % calculate the average normal vector from one region and plot it
-    find_idx = find([final_array.region_idx] == special_idx);
-    % as long as it isn't empty
-    if(~isempty(find_idx))
-        % get the appropriate indexes
-        final_array_find = final_array(find_idx);
-        % get the points of those points
-        test_array_points = vertcat(final_array_find.vec__point);
-        % get the appropriate colour
-        macro_region_colour = final_array_find(1).region_colour;
-        % get the centeroid plane point and the average normal
-        [var__normal, mat__orthnorm_plane_base, var__plane_point] = affine_fit(test_array_points);
-        plane_base = mat__orthnorm_plane_base;
-        % do the calculations to get the new plane boundary - alternative with
-        % boundary.m to follow soon
-        %legend({'Region ',special_idx},'Color', macro_region_colour);
-        AA = test_array_points';
-        
-        % Find point in AA closest to p1.
-        centeroid_point = var__plane_point; % centeroid
-        squaredDistance = sqrt(sum((AA-repmat(centeroid_point', [1, size(AA, 2)])).^2, 1));
-        %dists = sqrt(sum(bsxfun(@minus, test_array_points, centeroid_point).^2, 2));
-        [maxSqDist1, indexOfMax1] = max(squaredDistance);
-        search_space_interval = maxSqDist1;
-        % draw the macro plane
-        %segmentation__region_plane_draw(centeroid_point, plane_base, search_space_interval, final_array_find, macro_region_colour, test_array_points);
-        [strike, strike2, dip_direction, dip_direction2, dip, dip2, sigma, centeroid, direction_cosines] = calculation__strike_and_dip(test_array_points, var__normal);
-        segmentation__region_plane_draw(centeroid_point, var__normal, final_array_find, macro_region_colour, test_array_points, special_idx, strike, strike2, dip, dip2, dip_direction, dip_direction2);
-
-        disp('--------------------------------------------------------');
-        disp(['Results for region ', num2str(special_idx)]);
-        disp(['Strike measurement: ', num2str(strike)]);
-        disp(['Strike2 measurement: ', num2str(strike2)]);
-        disp(['Dip measurement: ', num2str(dip)]);
-        disp(['Dip2 measurement: ', num2str(dip2)]);
-        disp(['Dip Direction measurement: ', num2str(dip_direction)]);
-        disp(['Dip Direction2 measurement: ', num2str(dip_direction2)]);
-        disp('--------------------------------------------------------');
-    end
-end
-
-
 
 %--------------------------------------------------------------------------
 % Terminate
 %--------------------------------------------------------------------------
+
+%timer_start__segmentation__region_growing = tic; %Start GeoStruct timer
+timer_stop__segmentation__region_growing = toc(timer_start__segmentation__region_growing); %Stop internal timer
+
+if(geo_struct.timings.switch)
+    geo_struct.timings.timer_start__segmentation__region_growing = timer_start__segmentation__region_growing;
+    geo_struct.timings.timer_stop__segmentation__region_growing = timer_stop__segmentation__region_growing;
+end
+
+saveas(gcf, [geo_struct.output_folder, geo_struct.stats.experiment, '\', geo_struct.stats.experiment, '__seg_rg', geo_struct.stats.figure_ext]);
+%saveas(gcf, [geo_struct.output_folder, geo_struct.stats.experiment, '\', geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
 disp('Execution complete. Function segmentation__region_growing.m terminating.');
 end
 

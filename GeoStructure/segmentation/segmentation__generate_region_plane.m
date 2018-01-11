@@ -40,7 +40,7 @@ for special_idx = 1:region_idx
         macro_region_colour = final_array_find(1).region_colour;
         % get the centeroid plane point and the average normal
         disp('Test3')
-        [var__normal, mat__orthnorm_plane_base, var__centeroid_point] = affine_fit(test_array_points);
+        [var__normal, mat__orthnorm_plane_base, var__centeroid_point] = best_fit_plane__affine_fit(test_array_points);
         %plane_base = mat__orthnorm_plane_base;
         disp('Test4')
         % do the calculations to get the new plane boundary - alternative with
@@ -106,7 +106,7 @@ if(geo_struct.timings.switch)
     geo_struct.timings.timer_stop__segmentation__generate_region_plane = timer_stop__segmentation__generate_region_plane;
 end
 
-saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, '\',geo_struct.stats.experiment, '__seg_gen_rg', geo_struct.stats.figure_ext]);
+saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, filesep, geo_struct.stats.experiment, '__seg_gen_rg', geo_struct.stats.figure_ext]);
 %saveas(gcf, [geo_struct.output_folder, geo_struct.stats.experiment, '\', geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
 disp('Execution complete. Function segmentation__generate_region_plane.m terminating.');
 end

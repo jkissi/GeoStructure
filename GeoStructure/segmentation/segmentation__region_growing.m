@@ -7,7 +7,7 @@ function [ planes, final_array, region_idx ] = segmentation__region_growing(plan
 %--------------------------------------------------------------------------
 % Implementation of Region Growing and point cloud segmentation algorithm
 % from T. Rabbani(2006) - Segmentation of Point Clouds Using Smoothness
-% Constraint
+% Constraint[1]
 % Implements region growing part of algorithm in the most direct way, with
 % less focus on the smoothness constrait or residual threshold, as these
 % aspects are not required for this algorithm
@@ -350,7 +350,7 @@ if(geo_struct.timings.switch)
     geo_struct.timings.timer_stop__segmentation__region_growing = timer_stop__segmentation__region_growing;
 end
 
-saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, '\', geo_struct.stats.experiment, '__seg_rg', geo_struct.stats.figure_ext]);
+saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, filesep, geo_struct.stats.experiment, '__seg_rg', geo_struct.stats.figure_ext]);
 %saveas(gcf, [geo_struct.output_folder, geo_struct.stats.experiment, '\', geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
 disp('Execution complete. Function segmentation__region_growing.m terminating.');
 end

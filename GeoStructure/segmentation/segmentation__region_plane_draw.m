@@ -4,7 +4,10 @@ function [ ] = segmentation__region_plane_draw(planes, macro_region_colour, test
 %% ------------------------------------------------------------------------
 % Discussion
 %--------------------------------------------------------------------------
-% This is where all the magic happens. Finds the best fit plane
+% This is where all the magic happens: Aggregates the position and
+% dimension of each of the best fit planes and draws the region plane,
+% using a phi-section search and rotation matrix to find the best
+% orientation of the plane. 
 %
 % Returns 
 %% ------------------------------------------------------------------------
@@ -42,7 +45,7 @@ d = -point*normal; %'# dot product for less typing
 %quiver3(point(1), point(2), point(3), normal(1)/3, normal(2)/3, normal(3)/3, 'b','linewidth',5);
 
 
-%# plot the surface
+% plot the surface
 % if((size(z, 1) == 1) | (size(z, 2) == 1))
 %     disp('One of the dimensions is equal to 1, so no surf');
 % end
@@ -63,7 +66,7 @@ I = [];
 
 theta = 0; %pi/4 use radians or convert everything to degrees!
 
-phi_a = 45;
+phi_a = 45; 
 phi_b = 22.5;
 Eu = [(-d/normal(1)),0, 0 ];
 u_vector_zero_default = (Eu - point)/norm(Eu - point)';
@@ -106,7 +109,7 @@ end
 
 final_theta_value = (phi_b + phi_a)/2;
 disp('final theta value point');
-[ final_phi_search ] = compute_perimeter(final_theta_value, u_vector_zero_default', test_array_points, normal, point);
+[ final_phi_search ] = segmentation__compute_perimeter(final_theta_value, u_vector_zero_default', test_array_points, normal, point);
 disp('final theta search point');
 max_U = final_phi_search.beta_max * final_phi_search.new_u;
 min_U = final_phi_search.beta_min * final_phi_search.new_u;
@@ -177,6 +180,6 @@ end
 disp('Test save1')
 %saveas(gcf, [geo_struct.output_folder, geo_struct.stats.experiment, '\', geo_struct.stats.experiment, '__seg_rg_draw', geo_struct.stats.figure_ext]);
 disp('Test save2')
-disp('Execution complete. Function macro_plane__draw.m terminating.');
+disp('Execution complete. Function segmentation__region_plane_draw.m terminating.');
 return;
 end 
