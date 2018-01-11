@@ -110,5 +110,6 @@ if(geo_struct.timings.switch)
     geo_struct.timings.timer_start__point_space__derive = timer_start__point_space__derive;
     geo_struct.timings.timer_stop__point_space__derive = timer_stop__point_space__derive;
 end
+
 disp('Read complete. Function point_space__derive.m terminating.');
 end 

@@ -15,8 +15,9 @@ Xc = X-repmat(mean(X), n, 1); % centered data
 C = Xc'*Xc/n;                 % covariance
 
 
-disp('Execution complete. Function calculation__mahal_covariance.m terminating.');
+
 % -------------------------------------------------------------------------
 % Terminate 
 % -------------------------------------------------------------------------
+disp('Execution complete. Function calculation__mahal_covariance.m terminating.');
 end 

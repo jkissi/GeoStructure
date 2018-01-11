@@ -36,8 +36,9 @@ R = bsxfun(@minus,X,p);
 n = V(:,1);
 V = V(:,2:end);
 
-disp('Execution complete. Function best_fit_plane__affine_fit.m terminating.');
+
 % -------------------------------------------------------------------------
 % Terminate 
 % -------------------------------------------------------------------------
+disp('Execution complete. Function best_fit_plane__affine_fit.m terminating.');
 end
