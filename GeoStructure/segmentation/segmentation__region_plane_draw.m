@@ -76,24 +76,24 @@ phi_c = phi_b - (phi_b - phi_a)/phi;
 phi_d = phi_a + (phi_b - phi_a)/phi;
 % Assume the minimum wont be found between the bounds of the first
 % iteration 
-[ phi_search_a ] = compute_perimeter(phi_a, u_vector_zero_default', test_array_points, normal, point);
+[ phi_search_a ] = segmentation__compute_perimeter(phi_a, u_vector_zero_default', test_array_points, normal, point);
 
-[ phi_search_b ] = compute_perimeter(phi_b, u_vector_zero_default', test_array_points, normal, point);
+[ phi_search_b ] = segmentation__compute_perimeter(phi_b, u_vector_zero_default', test_array_points, normal, point);
 
-[ phi_search_c ] = compute_perimeter(phi_c, u_vector_zero_default', test_array_points, normal, point);
+[ phi_search_c ] = segmentation__compute_perimeter(phi_c, u_vector_zero_default', test_array_points, normal, point);
 
-[ phi_search_d ] = compute_perimeter(phi_d, u_vector_zero_default', test_array_points, normal, point);
+[ phi_search_d ] = segmentation__compute_perimeter(phi_d, u_vector_zero_default', test_array_points, normal, point);
 
 %while(abs(phi_search_c.perimeter - phi_search_d.perimeter) > tol)
 while(abs(phi_c - phi_d) > tol)
  
-[ phi_search_a ] = compute_perimeter(phi_a, u_vector_zero_default', test_array_points, normal, point);
+[ phi_search_a ] = segmentation__compute_perimeter(phi_a, u_vector_zero_default', test_array_points, normal, point);
 
-[ phi_search_b ] = compute_perimeter(phi_b, u_vector_zero_default', test_array_points, normal, point);
+[ phi_search_b ] = segmentation__compute_perimeter(phi_b, u_vector_zero_default', test_array_points, normal, point);
 
-[ phi_search_c ] = compute_perimeter(phi_c, u_vector_zero_default', test_array_points, normal, point);
+[ phi_search_c ] = segmentation__compute_perimeter(phi_c, u_vector_zero_default', test_array_points, normal, point);
 
-[ phi_search_d ] = compute_perimeter(phi_d, u_vector_zero_default', test_array_points, normal, point);
+[ phi_search_d ] = segmentation__compute_perimeter(phi_d, u_vector_zero_default', test_array_points, normal, point);
 
 if(phi_search_c.perimeter < phi_search_d.perimeter)
     phi_b = phi_d;
