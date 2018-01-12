@@ -110,7 +110,7 @@ if(geo_struct.timings.switch)
     geo_struct.timings.timer_stop__point_cloud__read = timer_stop__point_cloud__read;
 end
 
-saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder filesep geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
+saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, filesep, geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
 
 disp('Read complete. Function point_cloud__read.m terminating.');
 return;

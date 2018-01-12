@@ -145,7 +145,7 @@ if(geo_struct.timings.switch)
     geo_struct.timings.timer_stop__point_space__search = timer_stop__point_space__search;
 end
 
-saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, filsep, geo_struct.stats.experiment, '__ps_search', geo_struct.stats.figure_ext]);
+saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, filesep, geo_struct.stats.experiment, '__ps_search', geo_struct.stats.figure_ext]);
 %saveas(gcf, [geo_struct.output_folder, geo_struct.stats.experiment, '\', geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
 disp('Execution complete. Function point_space__search.m terminating.');
 return;

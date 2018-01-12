@@ -143,7 +143,7 @@ if(geo_struct.timings.switch)
     geo_struct.timings.timer_stop__GeoStruct = timer_stop__GeoStruct;
 end
 
-saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder filesep geo_struct.stats.experiment, '__complete', geo_struct.stats.figure_ext]);
+saveas(gcf, [geo_struct.output_folder, geo_struct.stats.parent_folder, filesep, geo_struct.stats.experiment, '__complete', geo_struct.stats.figure_ext]);
 %saveas(gcf, [geo_struct.output_folder, geo_struct.stats.experiment, '\', geo_struct.stats.experiment, '__pc_read', geo_struct.stats.figure_ext]);
 disp('Execution complete. Function GeoStructure.m terminating.');
 end
