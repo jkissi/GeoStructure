@@ -26,8 +26,8 @@ verbose = 1;
 
 if(verbose)  % If true, print the following... 
     fprintf(1, 'GeoStructure v1.0\n');
-    fprintf(1, '\copyright Jon Kissi-Ameyaw (2016, 2017, 2018).');
-    fprintf(1, ['MATLAB version: ', version]);
+    fprintf(1, 'copyright Jon Kissi-Ameyaw (2016, 2017, 2018).\n');
+    fprintf(1, ['MATLAB version: ', version, '\n']);
 end
 
 %--------------------------------------------------------------------------
