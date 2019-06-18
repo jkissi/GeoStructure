@@ -120,7 +120,7 @@ for m = min(ax__axes_limits_z + var__search_space_interval):abs(var__search_spac
                 struct__planes(struct__planes(end).idx__plane_draw).vec__point = vec__point;
                 [ struct__planes ] = best_fit_plane__draw(vec__point, mat__orthnorm_plane_base, var__search_space_interval, residual_average, norm_of_residuals, struct__planes);
                  
-                % then...destroy the Search Space. Hate that Search Space... 
+                % then...destroy the Search Space. Hate that Search Space...;-) 
                 [ han__search_space, idx__search_space ] = search_space__destroy(han__search_space, idx__search_space);              
                 
                 % reset the point matrix. This way there is no chance
