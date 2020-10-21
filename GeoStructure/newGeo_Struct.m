@@ -59,7 +59,7 @@ geo_struct.run_vsfm.nvm_out_folder = '';
 % Run Meshlab (Currently run manually)
 %--------------------------------------------------------------------------
 geo_struct.run_meshlab.switch = 0;
-geo_struct.run_meshlab.bundle_file = ''; %C:\Users\jkissi\Downloads\research\SfM\examples\wall4\wall_rectified_matlab_distortion\Movie Frames from MVI_0001\dense.nvm.cmvs\00\bundle.rd.out
+geo_struct.run_meshlab.bundle_file = ''; %C:\Users\jkissi\Down loads\research\SfM\examples\wall4\wall_rectified_matlab_distortion\Movie Frames from MVI_0001\dense.nvm.cmvs\00\bundle.rd.out
 geo_struct.run_meshlab.list_file = ''; %C:\Users\jkissi\Downloads\research\SfM\examples\wall4\wall_rectified_matlab_distortion\Movie Frames from MVI_0001\dense.nvm.cmvs\00\list.txt
 geo_struct.run_meshlab.mlx_script_file = 'first_mlx.mlx';
 geo_struct.run_meshlab.dense_mesh = ''; %'C:\Users\jkissi\Downloads\research\SfM\examples\wall4\wall_rectified_matlab_distortion\Movie Frames from MVI_0001\dense.0.ply';

@@ -9,8 +9,8 @@
 
 struct__options = struct();
 struct__stats = struct();
-struct__options.var__search_cube_size_factor = 0.01;
-struct__options.normal_threshold = 10;
+struct__options.var__search_cube_size_factor = 0.008;
+struct__options.normal_threshold = 20;
 %struct__options.region_growing_k = 'var'; %40 %var string is for file titles only!
 struct__options.region_growing_k = 15;
 struct__options.r_thresh_factor = 0.1; % 10% offset from seed plane
@@ -191,11 +191,11 @@ for i = 1:length(run.data)
     %% knn region growing experiments
   
     struct__stats.plotname = '__knn_value_v_total_time';
-    struct__stats.x_label.data = 'Total Time(s)';
-    struct__stats.y_label.data = 'k';
+    struct__stats.y_label.data = 'Total Time(s)';
+    struct__stats.x_label.data = 'k';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.GS_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.region_growing_k.data;
+    struct__stats.y_array(1).data = struct__stats.GS_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.region_growing_k.data;
     %struct__stats.x_array(1).data = struct__stats.GS_TElapsed(4).data;
     %struct__stats.y_array(1).data = struct__stats.region_growing_k(4).data; 
     struct__stats.legend_switch.on = 0;
@@ -209,11 +209,11 @@ for i = 1:length(run.data)
 
     
     struct__stats.plotname = '__knn_value_v_rg_time';
-    struct__stats.x_label.data = 'RG Convergence(s)';
-    struct__stats.y_label.data = 'k';
+    struct__stats.y_label.data = 'RG Convergence(s)';
+    struct__stats.x_label.data = 'k';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.RG_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.region_growing_k.data;
+    struct__stats.y_array(1).data = struct__stats.RG_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.region_growing_k.data;
     %struct__stats.x_array(1).data = struct__stats.RG_TElapsed(4).data;
     %struct__stats.y_array(1).data = struct__stats.region_growing_k(4).data;        
     struct__stats.legend_switch.on = 0;
@@ -224,13 +224,13 @@ for i = 1:length(run.data)
     
     %combined one
     struct__stats.plotname = '__knn_value_v_time';
-    struct__stats.x_label.data = 'Time Elapsed(s)';
-    struct__stats.y_label.data = 'k';
+    struct__stats.y_label.data = 'Time Elapsed(s)';
+    struct__stats.x_label.data = 'k';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.GS_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.region_growing_k.data;
-    struct__stats.x_array(2).data = struct__stats.RG_TElapsed.data;
-    struct__stats.y_array(2).data = struct__stats.region_growing_k.data; 
+    struct__stats.y_array(1).data = struct__stats.GS_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.region_growing_k.data;
+    struct__stats.y_array(2).data = struct__stats.RG_TElapsed.data;
+    struct__stats.x_array(2).data = struct__stats.region_growing_k.data; 
     %struct__stats.x_array(1).data = struct__stats.GS_TElapsed(4).data;
     %struct__stats.y_array(1).data = struct__stats.region_growing_k(4).data;
     %struct__stats.x_array(2).data = struct__stats.RG_TElapsed(4).data;
@@ -245,11 +245,11 @@ for i = 1:length(run.data)
     %% search cube size experiments
     
     struct__stats.plotname = '__scs_v_total_time';
-    struct__stats.x_label.data = 'Total Time(s)';
-    struct__stats.y_label.data = '\zeta Proportion';
+    struct__stats.y_label.data = 'Total Time(s)';
+    struct__stats.x_label.data = '\zeta Proportion';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.GS_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.scs.data;  
+    struct__stats.y_array(1).data = struct__stats.GS_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.scs.data;  
     %struct__stats.x_array(1).data = struct__stats.GS_TElapsed(1).data;
     %struct__stats.y_array(1).data = struct__stats.scs(1).data;        
     struct__stats.legend_switch.on = 0;
@@ -263,11 +263,11 @@ for i = 1:length(run.data)
 
     
     struct__stats.plotname = '__scs_v_rg_time';
-    struct__stats.x_label.data = 'RG Convergence(s)';
-    struct__stats.y_label.data = '\zeta Proportion';
+    struct__stats.y_label.data = 'RG Convergence(s)';
+    struct__stats.x_label.data = '\zeta Proportion';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.RG_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.scs.data;
+    struct__stats.y_array(1).data = struct__stats.RG_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.scs.data;
     %struct__stats.x_array(1).data = struct__stats.RG_TElapsed(1).data;
     %struct__stats.y_array(1).data = struct__stats.scs(1).data;  
     struct__stats.legend_switch.on = 0;
@@ -277,13 +277,13 @@ for i = 1:length(run.data)
     
     %combined one
     struct__stats.plotname = '__scs_v_time';
-    struct__stats.x_label.data = 'Time Elapsed(s)';
-    struct__stats.y_label.data = '\zeta Proportion';
+    struct__stats.y_label.data = 'Time Elapsed(s)';
+    struct__stats.x_label.data = '\zeta Proportion';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.GS_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.scs.data;
-    struct__stats.x_array(2).data = struct__stats.RG_TElapsed.data;
-    struct__stats.y_array(2).data = struct__stats.scs.data;
+    struct__stats.y_array(1).data = struct__stats.GS_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.scs.data;
+    struct__stats.y_array(2).data = struct__stats.RG_TElapsed.data;
+    struct__stats.x_array(2).data = struct__stats.scs.data;
     %struct__stats.x_array(1).data = struct__stats.GS_TElapsed(1).data;
     %struct__stats.y_array(1).data = struct__stats.scs(1).data;
     %struct__stats.x_array(2).data = struct__stats.RG_TElapsed(1).data;
@@ -298,11 +298,11 @@ for i = 1:length(run.data)
     %% normal angle threshold experiments
     
     struct__stats.plotname = '__theta_v_total_time';
-    struct__stats.x_label.data = 'Total Time(s)';
-    struct__stats.y_label.data = '\theta Angle Threshold';
+    struct__stats.y_label.data = 'Total Time(s)';
+    struct__stats.x_label.data = '\theta Angle Threshold';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.GS_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.normal_threshold.data;  
+    struct__stats.y_array(1).data = struct__stats.GS_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.normal_threshold.data;  
     %struct__stats.x_array(1).data = struct__stats.GS_TElapsed(2).data;
     %struct__stats.y_array(1).data = struct__stats.normal_threshold(2).data;      
     struct__stats.legend_switch.on = 0;
@@ -316,11 +316,11 @@ for i = 1:length(run.data)
 
     
     struct__stats.plotname = '__theta_v_rg_time';
-    struct__stats.x_label.data = 'RG Convergence(s)';
-    struct__stats.y_label.data = '\theta Angle Threshold';
+    struct__stats.y_label.data = 'RG Convergence(s)';
+    struct__stats.x_label.data = '\theta Angle Threshold';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.RG_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.normal_threshold.data;  
+    struct__stats.y_array(1).data = struct__stats.RG_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.normal_threshold.data;  
     %struct__stats.x_array(1).data = struct__stats.RG_TElapsed(2).data;
     %struct__stats.y_array(1).data = struct__stats.normal_threshold(2).data;
     struct__stats.legend_switch.on = 0;
@@ -330,13 +330,13 @@ for i = 1:length(run.data)
     
     %combined one
     struct__stats.plotname = '__theta_v_time';
-    struct__stats.x_label.data = 'Time Elapsed(s)';
-    struct__stats.y_label.data = '\theta Angle Threshold';
+    struct__stats.y_label.data = 'Time Elapsed(s)';
+    struct__stats.x_label.data = '\theta Angle Threshold';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.GS_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.normal_threshold.data;
-    struct__stats.x_array(2).data = struct__stats.RG_TElapsed.data;
-    struct__stats.y_array(2).data = struct__stats.normal_threshold.data; 
+    struct__stats.y_array(1).data = struct__stats.GS_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.normal_threshold.data;
+    struct__stats.y_array(2).data = struct__stats.RG_TElapsed.data;
+    struct__stats.x_array(2).data = struct__stats.normal_threshold.data; 
     %struct__stats.x_array(1).data = struct__stats.GS_TElapsed(2).data;
     %struct__stats.y_array(1).data = struct__stats.normal_threshold(2).data;
     %struct__stats.x_array(2).data = struct__stats.RG_TElapsed(2).data;
@@ -352,11 +352,11 @@ for i = 1:length(run.data)
     %% psi offset threshold plots 
     
     struct__stats.plotname = '__psi_v_total_time';
-    struct__stats.x_label.data = 'Total Time(s)';
-    struct__stats.y_label.data = '\psi Offset Threshold';
+    struct__stats.y_label.data = 'Total Time(s)';
+    struct__stats.x_label.data = '\psi Offset Threshold';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.GS_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.psi.data;    
+    struct__stats.y_array(1).data = struct__stats.GS_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.psi.data;    
     %struct__stats.x_array(1).data = struct__stats.GS_TElapsed(3).data;
     %struct__stats.y_array(1).data = struct__stats.psi(3).data;
     struct__stats.legend_switch.on = 0;
@@ -370,11 +370,11 @@ for i = 1:length(run.data)
 
     
     struct__stats.plotname = '__psi_v_rg_time';
-    struct__stats.x_label.data = 'RG Convergence(s)';
-    struct__stats.y_label.data = '\psi Offset Threshold';
+    struct__stats.y_label.data = 'RG Convergence(s)';
+    struct__stats.x_label.data = '\psi Offset Threshold';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.RG_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.psi.data;  
+    struct__stats.y_array(1).data = struct__stats.RG_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.psi.data;  
     %struct__stats.x_array(1).data = struct__stats.RG_TElapsed(3).data;
     %struct__stats.y_array(1).data = struct__stats.psi(3).data;    
     struct__stats.legend_switch.on = 0;
@@ -384,13 +384,13 @@ for i = 1:length(run.data)
     
     % combined one
     struct__stats.plotname = '__psi_v_time';
-    struct__stats.x_label.data = 'Time Elapsed(s)';
-    struct__stats.y_label.data = '\psi Offset Threshold';
+    struct__stats.x_label.data = '\psi Offset Threshold';
+    struct__stats.y_label.data = 'Time Elapsed(s)';
     struct__stats.print_filetype = '-dpng';
-    struct__stats.x_array(1).data = struct__stats.GS_TElapsed.data;
-    struct__stats.y_array(1).data = struct__stats.psi.data;
-    struct__stats.x_array(2).data = struct__stats.RG_TElapsed.data;
-    struct__stats.y_array(2).data = struct__stats.psi.data;
+    struct__stats.y_array(1).data = struct__stats.GS_TElapsed.data;
+    struct__stats.x_array(1).data = struct__stats.psi.data;
+    struct__stats.y_array(2).data = struct__stats.RG_TElapsed.data;
+    struct__stats.x_array(2).data = struct__stats.psi.data;
     %struct__stats.x_array(1).data = struct__stats.GS_TElapsed(3).data;
     %struct__stats.y_array(1).data = struct__stats.psi(3).data;
     %struct__stats.x_array(2).data = struct__stats.RG_TElapsed(3).data;
