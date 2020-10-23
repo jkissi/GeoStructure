@@ -1,7 +1,7 @@
 # Created by https://www.gitignore.io/api/linux,macos,matlab,windows
 
 # Modifying the file to ignore the output directory as this can very quickly fill up with many heavy duty files
-GeoStructure/output/*
+output/*
 
 
 
