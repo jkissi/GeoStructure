@@ -10,11 +10,13 @@
 struct__options = struct();
 struct__stats = struct();
 struct__options.var__search_cube_size_factor = 0.008;
-struct__options.normal_threshold = 20;
+struct__options.normal_threshold = 6; % theta
 %struct__options.region_growing_k = 'var'; %40 %var string is for file titles only!
-struct__options.region_growing_k = 15;
-struct__options.r_thresh_factor = 0.1; % 10% offset from seed plane
-struct__options.phi_tolerance = 'var'; % 0.01; % tolerance value for phi
+struct__options.region_growing_k = 10;
+struct__options.r_thresh_factor = 0.1; % 10% offset from seed plane % psi
+
+%for the golden section search
+struct__options.phi_tolerance = 0.01; % 0.01; % tolerance value for phi 
 
 struct__options.face_alpha = 0.2;
 struct__options.edge_alpha = 0.2;
@@ -33,9 +35,9 @@ if(~struct__stats.replot_only)
 % that varies
 struct__options.bool__search_cube_size_factor_on = 0;
 struct__options.bool__normal_threshold_on = 0;
-struct__options.bool__psi_threshold_on = 1;
+struct__options.bool__psi_threshold_on = 0;
 struct__options.bool__region_growing_k_on = 0;
-number_of_runs = 10;
+number_of_runs = 1;
 struct__stats.current_time = datestr(now, 'yyyymmdd_HHMMSS');
 struct__stats.experiment = [struct__stats.current_time, '_GeoStruct__scs_', num2str(struct__options.var__search_cube_size_factor),'_theta_',num2str(struct__options.normal_threshold),'_rgk_',num2str(struct__options.region_growing_k),'_psi_',num2str(struct__options.r_thresh_factor)];
 struct__options.experiment = struct__stats.experiment;
