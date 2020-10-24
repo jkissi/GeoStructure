@@ -170,6 +170,8 @@ geo_struct.stats.figure_ext = '.fig';
 geo_struct.stats.plot_ext = '.fig';
 geo_struct.stats.experiment = struct__options.experiment;
 geo_struct.stats.parent_folder = struct__options.parent_folder;
+
+
 % Ground truth data
 geo_struct.stats.ground_truth.struct__RP(1).gps = '43^{\circ} 0^{\prime} 20 N, 81^{\circ} 16^{\prime} 31 W';
 geo_struct.stats.ground_truth.struct__RP(1).strike.degrees(1).data = 87;

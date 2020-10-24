@@ -1,13 +1,15 @@
+[![License CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC4.0-blue.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)
+
 # GeoStructure: Semi-Automatic Fracture Orientation Extraction from Point Clouds, using Machine Learning and Region Growing
 
-This is the official implementation of GeoStructure, an algorithmic software pipleine designed to extract Fracture Orientation measurements from a [software generated] point cloud. Data is cleaned of outliers using a Mahalanobis distance method, segmented using a kNN Region Growing technique and Fracture Orientations determined using Direction Cosines method. For technical details, please refer to:
+This is the official implementation of GeoStructure, an algorithmic software pipleine designed to extract Fracture Orientation (FO) measurements from a [software generated] point cloud. Data is cleaned of outliers using a Mahalanobis distance method, segmented using a *k*NN Region Growing technique and FOs (Strike, Dip Angle, Dip Direction) determined using Direction Cosines method. For technical details, please refer to:
 
 Towards an Automatic System for Extracting Fracture Orientations from Software Generated Point Clouds [paper]
 Fracture Orientation Extraction from Software Generated Point Clouds [thesis]
 
 <img src="docs/images/diagram__dataflow.png" width="100%">
 
-<img src="docs/images/diagram__geostruct_flow_cropped.png" width="60%">
+<img src="docs/images/diagram__geostruct_flow.png" width="60%">
 
 <p float="left">
 <img src="docs/images/plot__geostruct_pc_read.png" width="20%">
@@ -32,12 +34,12 @@ git clone https://github.com/jkissi/GeoStructure.git
 cd GeoStructure
 startup
 ```
-* Running the startup script should ensure that the pipeline folders are in the local path
+* Running the `startup.m` script should ensure that the pipeline folders are in the local path
 
 
 ## (2) Usage
 
-* Modify program variable factors and graph outputs from Experimental_Framework file. Read comments for detailed explanations. Then run:
+* Modify program variable factors and graph outputs from `Experimental_Framework.m` file. Read comments in the `Experimental_Framework.m` file for detailed explanations. Then run:
 
   
 ``` matlab
@@ -78,11 +80,12 @@ from the Matlab prompt.
 
 * The pipeline automatically aggregates the textfiles for each run into a single file and plots this data
 
-* For output figures with region planes that correspond with ground truth specified in the `newGeo_Struct` object, simply indicate [the number of] the region planes which you have clicked (Ground truth region planes must be numbered) and confirm the region exists by making sure 'Yes' is in the region exists field and click OK
-
-<img src="docs/images/fracture_orientation_panel.png" width="60%">
-
-* Once a final_scores file has been made for every run of the experiment, on the final file of the run, cleack yes to aggregate the files. This collates the data into a single file
+* For output figures with region planes that correspond with ground truth specified in the `newGeo_Struct` object, simply indicate [the number of] the region plane which you have clicked (Ground truth region planes must be numbered in the `newGeo_Struct.m` file) and confirm the region exists by making sure 'Yes' is in the "region exists" field and click "OK"
+<p float="left">
+<img src="docs/images/fracture_orientation_panel.png" width="45%">
+<img src="docs/images/groundtruth.png" width="45%">
+</p>
+* Once a final_scores file has been made for every run of the experiment, on the final file of the run, click yes to aggregate the files. This collates the data into a single file
 
 <img src="docs/images/aggregate_panel_2.png" width="60%">
 
@@ -103,7 +106,7 @@ from the Matlab prompt.
 <img src="docs/images/plot_panel_.png" width="60%">
 
 
-## (4) File Structure 
+## (4) Directory Structure 
 
 * Root - Run the pipeline
 * ancilliary - functions that perform convenience tasks internal to the pipeline
@@ -133,7 +136,7 @@ If you find our work useful in your research, please consider citing:
 
 
 ### License
-[MIT](https://choosealicense.com/licenses/mit/)
+Licensed under the CC BY-NC-SA 4.0 license, see [LICENSE](./LICENSE).
 
 
 
