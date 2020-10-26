@@ -104,20 +104,21 @@ end
 %--------------------------------------------------------------------------
 geo_struct.segmentation__region_growing.switch = 1;
 
-
+% theta
 if(any(strcmp('normal_threshold', option_fields)))
     geo_struct.normal_threshold = struct__options.normal_threshold;
 else
     geo_struct.normal_threshold = 5;
 end 
 
-
+% k
 if(any(strcmp('region_growing_k', option_fields)))
     geo_struct.region_growing_k = struct__options.region_growing_k;
 else
     geo_struct.region_growing_k = 40;
 end 
 
+% psi
 if(any(strcmp('r_thresh_factor', option_fields)))
     geo_struct.r_thresh_factor = struct__options.r_thresh_factor;
 else
@@ -129,6 +130,7 @@ geo_struct.segmentation__generate_region_plane.switch = 1;
 geo_struct.segmentation__region_plane_draw.switch = 1;
 geo_struct.segmentation__region_plane_draw.invisible = 1;
 
+% opacity of the region plane edge
 %geo_struct.segmentation__region_plane_draw.edge_alpha = 0.4;
 if(any(strcmp('edge_alpha', option_fields)))
     geo_struct.edge_alpha = struct__options.edge_alpha;
@@ -136,14 +138,17 @@ else
     geo_struct.edge_alpha = 0.1;
 end 
 
+% opacity of the region plane body
 if(any(strcmp('face_alpha', option_fields)))
     geo_struct.face_alpha = struct__options.face_alpha;
 else
     geo_struct.face_alpha = 0.1;
-end 
+end
 
+% remove the voxel planes
 geo_struct.segmentation__region_plane_draw.remove_bf_planes = 0;
 
+% tolerance for the Golden Section Search
 if(any(strcmp('phi_tolerance', option_fields)))
     geo_struct.phi_tolerance = struct__options.phi_tolerance;
 else
@@ -157,12 +162,13 @@ end
 geo_struct.calculation__strike_and_dip.switch = 1;
 
 %--------------------------------------------------------------------------
-% Time Variables
+% Time Variables (set timers for each function and algorithm part
+% Note: Many of the plotting function relay on this being set to plot)
 %--------------------------------------------------------------------------
 geo_struct.timings.switch = 1; 
 
 %--------------------------------------------------------------------------
-% Data Collection (?)
+% Data Collection (ground truth input for accuracy calc)
 %--------------------------------------------------------------------------
 geo_struct.stats.switch = 1; 
 geo_struct.stats.textfile_ext = '.txt';
