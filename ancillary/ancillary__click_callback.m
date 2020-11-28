@@ -88,6 +88,7 @@ if(strcmp(button__rp_input_save, 'Yes'))
         struct__RP(region_number).dip_direction.degrees(2).data = NaN;
         struct__RP(region_number).dip_direction.radians(2).data = NaN;
     else
+        % Calculate the Quality metric score (z)
         
         st_deg(1) = struct__RP(region_number).strike.degrees(1).data;
         st_rad(1) = struct__RP(region_number).strike.radians(1).data;
@@ -104,6 +105,7 @@ if(strcmp(button__rp_input_save, 'Yes'))
         dd_deg(2) = measurements(7);
         dd_rad(2) = measurements(6);
         
+        % z for strike, dip, dip direction measurements
         % do normalisation
         z__st_deg = (sqrt((st_deg(1) - st_deg(2))^2) - 0)/(360 - 0);
         z__st_rad = (sqrt((st_rad(1) - st_rad(2))^2) - 0)/(6.2832 - 0);
@@ -119,6 +121,7 @@ if(strcmp(button__rp_input_save, 'Yes'))
         struct__RP(region_number).dip_direction.degrees(2).data = dd_deg(2);
         struct__RP(region_number).dip_direction.radians(2).data = dd_rad(2);
     end
+    % z for the Regions (R_i)
     struct__RP(region_number).strike.degrees(3).data = z__st_deg;
     struct__RP(region_number).strike.radians(3).data = z__st_rad;
     struct__RP(region_number).dip_angle.degrees(3).data = z__da_deg;
@@ -213,7 +216,7 @@ elseif(strcmp(button__rp_input_complete, 'Yes'))
         z__Total_rad(i).data = data{27};
     end
     
-    
+    % Calculate the Total Quality Metric score (z)
     normalised_base = length(RP_norm_deg.data);
     z__Total_deg = (sqrt(sum(RP_norm_deg.data)^2) - 0)/(normalised_base - 0);
     normalised_base = length(RP_norm_rad.data);

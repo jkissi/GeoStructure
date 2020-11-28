@@ -1,11 +1,11 @@
 [![License CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC4.0-blue.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode)
 
-# GeoStructure: Semi-Automatic Fracture Orientation Extraction from Point Clouds, using Machine Learning and Region Growing
+# GeoStructure: Semi-Automatic Planar Orientation Extraction from Point Clouds, using Machine Learning and Region Growing
 
-This is the official implementation of GeoStructure, an algorithmic software pipleine designed to extract Fracture Orientation (FO) measurements from a [software generated] point cloud. Data is cleaned of outliers using a Mahalanobis distance method, segmented using a *k*NN Region Growing technique and FOs (Strike, Dip Angle, Dip Direction) determined using Direction Cosines method. For technical details, please refer to:
+This is the official implementation of GeoStructure, an algorithmic software pipleine designed to extract Planar Orientation (PO) measurements from a [software generated] point cloud. Data is cleaned of outliers using a Mahalanobis distance method, segmented using a *k*NN Region Growing technique and POs (Strike, Dip Angle, Dip Direction) determined using Direction Cosines method. For technical details, please refer to:
 
-Towards an Automatic System for Extracting Fracture Orientations from Software Generated Point Clouds [paper]
-Fracture Orientation Extraction from Software Generated Point Clouds [thesis]
+Towards an Automatic System for Extracting Planar Orientations from Software Generated Point Clouds [paper]
+Planar Orientation Extraction from Software Generated Point Clouds [[thesis](https://ir.lib.uwo.ca/etd/4243/)]
 
 <img src="docs/images/diagram__dataflow.png" width="100%">
 
@@ -50,15 +50,12 @@ from the Matlab prompt.
 * Pipeline flags and switches are located in `newGeo_Struct.m` file. This acts as a datastructure that is passed through the pipeline as it runs. All modified data values for objects are retained in the object it creates. The pipeline is complex, it may take some time to understand what is going on, but it is designed to "just run" with the default data contained in the input directory.
 
 
-### (3) Obtain FO measurements
+### (3) Obtain PO measurements
 
-* After run is complete, go to the output directory and open the figure that ends in `_complete.fig`. Click on the Region Planes visible to see what the algorithm determined their FO measurements to be. 
-
-<img src="docs/images/fracture_orientation_dialog.png" width="60%">
-
-* Simply click on the illustrated planes to open a dialog with the measured Strike, Dip and Dip Direction information 
+* After run is complete, go to the output directory and open the figure that ends in `_complete.fig`. Click on the Region Planes visible to see what the algorithm determined their PO measurements to be. There may be excess regions defined, so some user selection of what appear to be the closest to original ground truth may be required.
 
 <img src="docs/images/fracture_orientation_dialog.png" width="60%">
+
 
 
 ### (3) Get Accuracy Score (z)
@@ -109,7 +106,7 @@ from the Matlab prompt.
 ## (4) Directory Structure 
 
 * Root - Run the pipeline
-* ancilliary - functions that perform convenience tasks internal to the pipeline
+* ancilliary - functions that perform convenience tasks internal to the pipeline (_callback function contains Quality Metric derivation code)
 * calculation - function that specilise in deriving specific standalone calculation
 * best_fit_plane - functions related to the voxel fitting and plane fitting functions of the pipeline 
 * input - input data and/or files. Contains a script directory that is currently unused
