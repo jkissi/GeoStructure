@@ -90,7 +90,7 @@ from the Matlab prompt.
 
 <img src="docs/images/fracture_orientation_panel_experiment.png" width="60%">
 
-* If there are NO clickable regions on the plot, ensure that the fill experiment name in input EXACTLY in this field 
+* If there are NO clickable regions on the plot, ensure that to fill the experiment name EXACTLY in the experiment field (this would be the file name minus the final underscore word. So in this image it would be: **20201020_213150_GeoStruct__scs_0.008_theta_20_rgk_15_psi_0.11**) 
 
 <img src="docs/images/fracture_orientation_panel_experiment.png" width="60%">
 
