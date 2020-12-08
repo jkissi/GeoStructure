@@ -11,8 +11,8 @@ struct__options = struct();
 struct__stats = struct();
 struct__options.var__search_cube_size_factor = 0.008;
 struct__options.normal_threshold = 6; % theta
-%struct__options.region_growing_k = 'var'; %40 %var string is for file titles only!
-struct__options.region_growing_k = 10;
+struct__options.region_growing_k = 'var'; %40 %var string is for file titles only!
+%struct__options.region_growing_k = 10;
 struct__options.r_thresh_factor = 0.1; % 10% offset from seed plane % psi
 
 %for the golden section search
@@ -71,6 +71,10 @@ global geo_struct;
 end
 end_point = [];
 initial = [];
+
+% The below loop is how the variable quantity (one of psi, theta, k, zeta)
+% for each specific run is calculated  
+% calculation for all run figures --> 0:end_point/number_of_runs:end_point 
 for r = 1:number_of_runs
     struct__stats.run = r;
     
